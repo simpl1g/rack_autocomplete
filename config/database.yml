@@ -17,4 +17,4 @@ test:
 
 production:
   <<: *default
-  database: rack_autocomplete_production
+  database: rack_autocomplete_development

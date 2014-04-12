@@ -25,14 +25,15 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 group :development do
   gem 'spring'
-  gem 'thin'
+  # gem 'thin'
 end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
+# gem 'puma'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
