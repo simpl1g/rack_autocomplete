@@ -1,28 +1,20 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Some results to compare speed of different autocomplete methods
 
-Things you may want to cover:
+Ruby 2.1.1
 
-* Ruby version
+  Thin
+    Elapsed time for controller autocomplete: 5.612114202
+    Elapsed time for rack app autocomplete: 2.663584515
+    Elapsed time for rack middleware autocomplete: 1.946385753
 
-* System dependencies
+  Unicorn
+    Elapsed time for controller autocomplete: 5.695448048
+    Elapsed time for rack app autocomplete: 3.419353762
+    Elapsed time for rack middleware autocomplete: 2.720414571
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+  Puma
+    Elapsed time for controller autocomplete: 5.470961704
+    Elapsed time for rack app autocomplete: 3.442538771
+    Elapsed time for rack middleware autocomplete: 2.439292391
