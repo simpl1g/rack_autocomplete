@@ -1,4 +1,6 @@
-class PostsAutocomplete
+class PostsAutocomplete < MiddlewareAutocomplete::Base
+  self.namespace = 'asd'
+
   def initialize(app)
     @app = app
   end
