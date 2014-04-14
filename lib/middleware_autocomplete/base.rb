@@ -4,12 +4,20 @@ module MiddlewareAutocomplete
       attr_accessor :namespace, :path, :route_name, :content_type, :search_key
 
       def setup
-        klasses = descendants
-        Rails.application.routes.eval_block(Proc.new do
-          klasses.each do |klass|
-            get klass.route => MiddlewareAutocomplete::Base.new, as: klass.route_name
+        autocomplete_klasses = descendants
+
+        autocomplete_klasses.each do |klass|
+          ROUTES[klass.route] = klass
+        end
+
+        # Add url helpers namespace_route_path
+        Rails.application.routes.named_routes.module.module_eval do
+          autocomplete_klasses.each do |klass|
+            define_method "#{klass.route_name}_path" do
+              klass.route
+            end
           end
-        end)
+        end
       end
 
       def route
@@ -35,9 +43,10 @@ module MiddlewareAutocomplete
       def default_route_name
         "autocomplete_#{default_path}"
       end
-    end
 
-    def call()
+      def search
+        raise NotImplementedError
+      end
     end
 
     self.content_type = :json
