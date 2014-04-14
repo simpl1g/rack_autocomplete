@@ -6,6 +6,10 @@ module MiddlewareAutocomplete
   mattr_accessor :namespace
   @@namespace = '/autocompletes'
 
+  # Default content_type
+  mattr_accessor :content_type
+  @@namespace = :json
+
   ROUTES = ActiveSupport::OrderedHash.new
 end
 

@@ -10,7 +10,7 @@ module MiddlewareAutocomplete
         result = ActiveRecord::Base.connection_pool.with_connection do
           klass.search(request.params)
         end
-        [200, {'Content-Type' => 'application/json'}, [result]]
+        [200, { 'Content-Type' => klass.content_type_string }, [result]]
       else
         @app.call(env)
       end

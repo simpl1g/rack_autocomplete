@@ -47,9 +47,14 @@ module MiddlewareAutocomplete
       def search
         raise NotImplementedError
       end
+
+      def content_type
+        @content_type || MiddlewareAutocomplete.content_type
+      end
+
+      def content_type_string
+        Mime::Type.lookup_by_extension(content_type).to_s
+      end
     end
-
-    self.content_type = :json
-
   end
 end
