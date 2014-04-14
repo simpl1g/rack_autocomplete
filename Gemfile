@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 group :development do
   gem 'spring'
   gem 'thin'
+  gem 'jazz_hands'
 end
 
 # Use ActiveModel has_secure_password

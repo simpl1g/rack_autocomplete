@@ -28,5 +28,8 @@ module RackAutocomplete
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     # config.middleware.insert_before 0, 'PostsAutocomplete'
+    # config.to_prepare do
+    #   MiddlewareAutocomplete::Base.setup
+    # end
   end
 end
