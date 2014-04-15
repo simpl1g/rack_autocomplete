@@ -10,18 +10,10 @@ puts "Elapsed time for controller autocomplete: #{Time.new - start}"
 start = Time.now
 
 1000.times do
-  open('http://localhost:3000/posts_autocomplete').read
-end
-
-puts "Elapsed time for rack middleware autocomplete: #{Time.new - start}"
-
-start = Time.now
-
-1000.times do
   open('http://localhost:3000/autocomplete/posts').read
 end
 
-puts "Elapsed time for rack app autocomplete: #{Time.new - start}"
+puts "Elapsed time for rack middleware autocomplete: #{Time.new - start}"
 puts "RSS: #{`ps -eo rss,pid | grep #{Process.pid} | grep -v grep | awk '{ print $1;  }'`}"
 
 # Ruby 2.1.1
